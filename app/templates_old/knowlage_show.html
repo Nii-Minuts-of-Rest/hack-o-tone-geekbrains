@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>База знаний></title>
+</head>
+<body>
+    {% if terms %}
+        <a href="/knowledge/create">Добавить новый термин</a>
+        <table>
+            <tr>
+                <th>Термин</th>
+                <th>Область</th>
+                <th>Тег</th>
+                <th>Определение</th>
+                <th>Изменить</th>
+            </tr>
+            {% for term in terms %}
+            <tr>
+                <td>{{ term.1 }}</td>
+                <td>{{ term.2 }}</td>
+                <td>{{ term.3 }}</td>
+                <td>{{ term.4 }}</td>
+                <td><a href="/knowledge/edit/{{ term.0 }}">Изменить</a><a href="/knowledge/delete/{{ term.0 }}">Удалить</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h1>Нет терминов в Базе данных</h1>
+        <a href="/knowledge/create">Добавить новый термин</a>
+    {% endif %}
+</body>
+</html>

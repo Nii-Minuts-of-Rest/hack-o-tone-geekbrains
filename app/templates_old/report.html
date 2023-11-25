@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if title %}
+    <h1>Статья {{ title }}</h1>
+    {% endif %}
+    {% if terms %}
+    <h1>Термины</h1>
+    <ul>
+    {% for term in terms %}
+        <li>{{ term.0 }} - {{ term.1 }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if terms_pos %}
+    <h3>Возможные термины</h3>
+    <ul>
+    {% for term_pos in terms_pos %}
+        <li>{{ term_pos.0 }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if text %}
+    <p>{{ text }}</p>
+    {% endif %}
+</body>
+</html>

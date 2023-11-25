@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Блок с логотипом -->
+        <header class="header">
+            <img src="/static/geekbrains_otzyvy.png" alt="Логотип">
+        </header>
+        <hr>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/index" class="nav-link">Обработка</a></li>
+                <li class="nav-item"><a href="/knowledge" class="nav-link">База знаний</a></li> 
+            </ul>
+        </nav>
+        <hr>
+
+        <!-- основной блок -->
+        <div class="main main_index">
+            {% if term.0 %}
+                    <form action = "/knowledge/edit/{{ term.0.0 }}" method = "POST">
+                    Термин
+                    <input type = "text" name = "termin" >{{ term.0.1 }}</input>
+                    <br>
+                    Определение
+                    <input type = "text" name = "meaning" />{{ term.0.4 }}</input>
+                    <br>
+                    <input type = "submit"/>
+                </form>
+            {% else %}
+                <h1>Выбран неправильный термин</h1>
+            {% endif%}
+        </div>
+        <hr>
+        <br>
+    </div>
+</body>
+</html>

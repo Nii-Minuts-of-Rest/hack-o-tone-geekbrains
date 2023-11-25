@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>База знаний></title>
+</head>
+<body>
+    <div class="container">
+        <!-- Блок с логотипом -->
+        <header class="header">
+            <img src="/static/geekbrains_otzyvy.png" alt="Логотип">
+        </header>
+        <hr>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/index" class="nav-link">Обработка</a></li>
+                <li class="nav-item"><a href="/knowledge" class="nav-link">База знаний</a></li>
+            </ul>
+        </nav>
+        <hr>
+
+
+        <div class="main main_index">
+            <h1>База знаний</h1>
+            <hr>
+
+            {% if terms %}
+                <a href="/knowledge/create">Добавить новый термин</a>
+                <table class="table">
+                    <tr>
+                        <th>Термин</th>
+                        <th>Область</th>
+                        <th>Тег</th>
+                        <th>Определение</th>
+                        <th>Изменить</th>
+                    </tr>
+                    {% for term in terms %}
+                    <tr>
+                        <td>{{ term.1 }}</td>
+                        <td>{{ term.2 }}</td>
+                        <td>{{ term.3 }}</td>
+                        <td>{{ term.4 }}</td>
+                        <td><a href="/knowledge/edit/{{ term.0 }}">Изменить</a><a href="/knowledge/delete/{{ term.0 }}">Удалить</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <hr>
+                <br>
+            {% else %}
+                <h1>Нет терминов в Базе данных</h1>
+                <a href="/knowledge/create">Добавить новый термин</a>
+                <hr>
+                <br>
+            {% endif %}
+        </div>
+        <br>
+    </div>
+</body>
+</html>

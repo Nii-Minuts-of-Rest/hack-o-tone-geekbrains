@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if term.0 %}
+        <form action = "/knowledge/edit/{{ term.0.0 }}" method = "POST">
+        Термин
+        <input type = "text" name = "termin" >{{ term.0.1 }}</input>
+        <br>
+        Определение
+        <input type = "text" name = "meaning" />{{ term.0.4 }}</input>
+        <br>
+        <input type = "submit"/>
+    </form>
+{% else %}
+    <h1>Выбран неправильный термин</h1>
+{% endif%}
+</body>
+</html>
